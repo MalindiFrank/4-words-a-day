@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0 user-scalable=no'>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel='stylesheet' href='main.css'>
+  <link rel="stylesheet" href="animation.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
+  <title>4 Words A Day</title>
+</head>
+
+<body>
+  <main>
+    <p class='word'></p>
+    <p class='figure'></p>
+    <p class='definition'></p>
+  </main>
+  <p class="help"></p>
+  <footer>
+    <p class="word-count">1 of 4</p>
+  </footer>
+
+  <script>
+
+    let words = [
+      {
+        word: 'kopfkino',
+        definition: 'the act of playing out an entire scenario in your mind; a head cinema',
+        figure: 'n.'
+      },
+      {
+        word: 'wonderwall',
+        definition: 'someone you find yourself thinking about all the time; a person you are completely infatuated with',
+        figure: 'adj.'
+      },
+      {
+        word: 'vorfreude',
+        definition: 'the joyful, intense anticipation that comes with imagining future pleasures',
+        figure: 'n.'
+      },
+      {
+        word: 'torpe',
+        definition: 'a man who is desperately in love with a woman, but cannot admit his feelings or approach her',
+        figure: 'n..'
+      },
+      {
+        word: 'anagapesis',
+        definition: 'no longer feeling any affection for someone you once loved',
+        figure: 'n.'
+      },
+    ]
+    const bgColors = [
+      {
+        background: '#f4f0ea',
+        color: '#544b43'
+      },
+      {
+        background: '#aa5a2e',
+        color: '#f5f3f3',
+      },
+      {
+        background: '#dfc7a9',
+        color: ' #544b43',
+      },
+      {
+        background: '#533320',
+        color: '#d3cfcb'
+      },
+      {
+        background: '#373737',
+        color: '#d3cfcb'
+      },
+      {
+        background: '#b5a886',
+        color: '#544b43'
+      },
+    ];
+
+    let wordIndex = 0;
+    function setWord(word) {
+      document.querySelector('.word').textContent = word.word;
+      document.querySelector('.figure').textContent = `(${word.figure})`;
+      document.querySelector('.definition').textContent = word.definition;
+    };
+    document.addEventListener('DOMContentLoaded', setWord(words[wordIndex]));
+    function setRandomBg(arr) {
+      const randomIndex = Math.floor(Math.random() * arr.length);
+      document.body.style.backgroundColor = arr[randomIndex].background;
+      document.body.style.color = arr[randomIndex].color;
+      console.log(arr[randomIndex].background)
+    };
+    document.addEventListener('DOMContentLoaded', setRandomBg(bgColors));
+    function helpMsg() {
+      const helpMsgEl = document.querySelector('.help');
+      helpMsgEl.textContent = 'Swipe & Double Tap';
+      setTimeout(() => helpMsgEl.remove(), 2999);
+    };
+    document.addEventListener('DOMContentLoaded', helpMsg);
+    const bodyEl = document.querySelector('body');
+    const wordCountEl = document.querySelector('.word-count');
+    const hammertime = new Hammer(bodyEl);
+    hammertime.on('swiperight', function () {
+      if (wordIndex == 0) wordIndex = (words.length - 1);
+      else wordIndex--;
+      setWord(words[wordIndex]);
+      wordCountEl.textContent = `${wordIndex + 1} of 4`;
+    });
+    hammertime.on('swipeleft', function () {
+      if (wordIndex >= 4) wordIndex = 0;
+      else wordIndex++;
+      setWord(words[wordIndex]);
+      wordCountEl.textContent = `${wordIndex + 1} of 4`;
+    });
+    hammertime.on('doubletap', () => setRandomBg(bgColors));
+  </script>
+</body>
+
+</html>
