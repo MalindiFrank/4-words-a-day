@@ -108,7 +108,7 @@
         wordCountEl.textContent = `${wordIndex + 1} of 4`;
       });
       hammertime.on("swipeleft", function () {
-        if (wordIndex >= 4) wordIndex = 0;
+        if (wordIndex >= 3) wordIndex = 0;
         else wordIndex++;
         setWord(words[wordIndex]);
         wordCountEl.textContent = `${wordIndex + 1} of 4`;
