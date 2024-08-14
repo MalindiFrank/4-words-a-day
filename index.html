@@ -79,32 +79,30 @@
       document.querySelector(".word").textContent = word.word;
       document.querySelector(".figure").textContent = `(${word.figure})`;
       document.querySelector(".definition").textContent = word.definition;
-    }
+    };
     document.addEventListener("DOMContentLoaded", setWord(words[wordIndex]));
     function setRandomBg(arr) {
       const randomIndex = Math.floor(Math.random() * arr.length);
       document.body.style.backgroundColor = arr[randomIndex].background;
       document.body.style.color = arr[randomIndex].color;
-    }
+    };
     document.addEventListener("DOMContentLoaded", setRandomBg(bgColors));
     function helpMsg() {
       const helpMsgEl = document.querySelector(".help");
-      helpMsgEl.textContent = "Swipe & Double Tap";
+      helpMsgEl.textContent = "Swipe & Double Tap Features";
       setTimeout(() => helpMsgEl.remove(), 2999);
-    }
+    };
     document.addEventListener("DOMContentLoaded", helpMsg);
     const bodyEl = document.querySelector("body");
     const wordCountEl = document.querySelector(".word-count");
     const hammertime = new Hammer(bodyEl);
     hammertime.on("swiperight", function () {
-      if (wordIndex == 0) wordIndex = words.length - 1;
-      else wordIndex--;
+      if (wordIndex == 0) wordIndex = words.length - 1; else wordIndex--;
       setWord(words[wordIndex]);
       wordCountEl.textContent = `${wordIndex + 1} of 4`;
     });
     hammertime.on("swipeleft", function () {
-      if (wordIndex >= 3) wordIndex = 0;
-      else wordIndex++;
+      if (wordIndex >= 3) wordIndex = 0; else wordIndex++;
       setWord(words[wordIndex]);
       wordCountEl.textContent = `${wordIndex + 1} of 4`;
     });
