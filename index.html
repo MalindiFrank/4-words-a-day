@@ -25,26 +25,26 @@
   <script>
     let words = [
       {
-        word: "snaccident",
+        word: "dysania",
+        figure: "n.",
+        definition: "the state of finding it hard to get out of bed in the morning",
+      },
+      {
+        word: "carcolepsy",
         figure: "n.",
         definition:
-          "eating an entire bag of chips by mistake",
+          "a condition when a passenger falls asleep as soon as the car starts moving",
       },
       {
-        word: "ellipsism",
-        figure: "n.",
-        definition: "the sadness that you'll never be able to know how history will turn out",
-      },
-      {
-        word: "catharsis",
+        word: "aesthete",
         figure: "n.",
         definition:
-          "the release of strong emotions through a particular activity or experience, such as writing, theatre or music, in a way that helps you to understand those emotions",
+          "someone with a deep sensitivity to the beauty of art and nature",
       },
       {
-        word: "affinity",
+        word: "dès vu",
         figure: "n.",
-        definition: "a natural attraction to someone, often characterized by a deep and effortless connection",
+        definition: "the awareness that this will become a memory",
       },
     ];
     const bgColors = [
@@ -85,7 +85,6 @@
       const randomIndex = Math.floor(Math.random() * arr.length);
       document.body.style.backgroundColor = arr[randomIndex].background;
       document.body.style.color = arr[randomIndex].color;
-      console.log(arr[randomIndex].background);
     }
     document.addEventListener("DOMContentLoaded", setRandomBg(bgColors));
     function helpMsg() {
