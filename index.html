@@ -25,26 +25,26 @@
   <script>
     let words = [
       {
-        word: "dysania",
+        word: "lethologica",
         figure: "n.",
-        definition: "the state of finding it hard to get out of bed in the morning",
+        definition: "the inability to remember a particular word or name",
       },
       {
-        word: "carcolepsy",
+        word: "ikigai",
+        figure: "n.",
+        definition: "a reason for being: the thing that gets you up in the morning. Having a sense of purpose in life and a feeling of well-being",
+      },
+      {
+        word: "sanguine",
+        figure: "adj.",
+        definition:
+          "optimistic or positive, especially in an appropriate, bad or difficult situation",
+      },
+      {
+        word: "hiraeth",
         figure: "n.",
         definition:
-          "a condition when a passenger falls asleep as soon as the car starts moving",
-      },
-      {
-        word: "aesthete",
-        figure: "n.",
-        definition:
-          "someone with a deep sensitivity to the beauty of art and nature",
-      },
-      {
-        word: "dès vu",
-        figure: "n.",
-        definition: "the awareness that this will become a memory",
+          "an earnest longing for a home that no longer exists or never was. A deep and irrational bond felt with a time, era, place or person",
       },
     ];
     const bgColors = [
@@ -89,7 +89,7 @@
     document.addEventListener("DOMContentLoaded", setRandomBg(bgColors));
     function helpMsg() {
       const helpMsgEl = document.querySelector(".help");
-      helpMsgEl.textContent = "Swipe & Tap Features";
+      helpMsgEl.textContent = "Swipe & Double Tap Features";
       setTimeout(() => helpMsgEl.remove(), 2999);
     };
     document.addEventListener("DOMContentLoaded", helpMsg);
