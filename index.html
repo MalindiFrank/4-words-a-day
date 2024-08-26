@@ -23,30 +23,30 @@
   </footer>
 
   <script>
+    
     let words = [
       {
-          word: "wonderwall",
-          definition:
-            "someone you find yourself thinking about all the time; a person you are completely infatuated with",
-          figure: "adj.",
-        },
+        word: "cafuné",
+        figure: "n.",
+        definition: "running your fingers through the hair of someone you love",
+      },
       {
-          word: "redamancy",
-          definition:
-            "the act of loving the one who loves you; a love returned in full",
-          figure: "n.",
-        },
+        word: "quirk",
+        figure: "n.",
+        definition: "an unusual habit or part of someone's personality, or something that is strange and unexpected",
+      },
       {
-          word: "flawsome",
-          figure: "adj.",
-          definition: `an individual who embraces their "flaws" and knows they're awesome regardless`,
-       },
+        word: "prevaricate",
+        figure: "v.",
+        definition:
+          "to avoid giving a direct answer or deviate from the truth",
+      },
       {
-          word: "snaccident",
-          figure: "n.",
-          definition:
-            "eating an entire bag of chips by mistake",
-       },
+        word: "omnist",
+        figure: "n.",
+        definition:
+          "a person who does not claim any one religion, practices or belief, but finds truth in them all",
+      },
     ];
     const bgColors = [
       {
@@ -75,6 +75,8 @@
       },
     ];
 
+    
+    
     let wordIndex = 0;
     function setWord(word) {
       document.querySelector(".word").textContent = word.word;
@@ -90,7 +92,7 @@
     document.addEventListener("DOMContentLoaded", setRandomBg(bgColors));
     function helpMsg() {
       const helpMsgEl = document.querySelector(".help");
-      helpMsgEl.textContent = "‹  swipe & double tap  ›";
+      helpMsgEl.textContent = "Swipe & Tap Features";
       setTimeout(() => helpMsgEl.remove(), 2999);
     };
     document.addEventListener("DOMContentLoaded", helpMsg);
