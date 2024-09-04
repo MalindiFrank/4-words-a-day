@@ -1,7 +1,6 @@
-
 {
   "name": "4wordsaday",
-  "short_name": "4Words",
+  "short_name": "4words",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#EEF0F4",
