@@ -19,63 +19,24 @@
   </main>
   <p class="help"></p>
   <footer>
-    <p class="word-count">1 of 4</p>
+    <p class="word-count"></p>
   </footer>
 
   <script>
-
     let words = [
-      {
-        word: "exulansis",
-        figure: "n.",
-        definition:
-          "the tendency to give up trying to talk about an experience because people are unable to relate to it",
-      },
-      {
-        word: "forelsket",
-        figure: "adj.",
-        definition:
-          "the euphoria you experience when you're first falling in love",
-      },
-      {
-        word: "friable",
-        figure: "adj.",
-        definition: "easily broken into pieces or reduced to nothing",
-      },
-      {
-        word: "hygge",
-        figure: "n.",
-        definition: "a feeling of warmth and cosiness as you enjoy life's simple pleasures",
-      },
+      { name: "solace", definition: "comfort or consolation in a time of grief or disappointment", figure: "n." },
+      { name: "ebullient", definition: "cheerful and full of energy", figure: "adj." },
+      { name: "awe", definition: "a feeling of reverential respect mixed with fear or wonder", figure: "n." },
+      { name: "nirvana", definition: "a state of perfect happiness; an ideal or idyllic place or state", figure: "n." },
     ];
     const bgColors = [
-      {
-        background: "#f4f0ea",
-        color: "#544b43",
-      },
-      {
-        background: "#aa5a2e",
-        color: "#f5f3f3",
-      },
-      {
-        background: "#dfc7a9",
-        color: " #544b43",
-      },
-      {
-        background: "#533320",
-        color: "#d3cfcb",
-      },
-      {
-        background: "#373737",
-        color: "#d3cfcb",
-      },
-      {
-        background: "#b5a886",
-        color: "#544b43",
-      },
+      { background: "#f4f0ea", color: "#544b43",},
+      { background: "#aa5a2e", color: "#f5f3f3",},
+      { background: "#dfc7a9", color: " #544b43",},
+      { background: "#533320", color: "#d3cfcb",},
+      { background: "#373737", color: "#d3cfcb",},
+      { background: "#b5a886", color: "#544b43",},
     ];
-
-
 
     let wordIndex = 0;
     function setWord(word) {
@@ -83,33 +44,43 @@
       document.querySelector(".figure").textContent = `(${word.figure})`;
       document.querySelector(".definition").textContent = word.definition;
     };
-    document.addEventListener("DOMContentLoaded", setWord(words[wordIndex]));
+
     function setRandomBg(arr) {
       const randomIndex = Math.floor(Math.random() * arr.length);
       document.body.style.backgroundColor = arr[randomIndex].background;
       document.body.style.color = arr[randomIndex].color;
     };
-    document.addEventListener("DOMContentLoaded", setRandomBg(bgColors));
-    function helpMsg() {
+    
+    function helpMsg(txt) {
       const helpMsgEl = document.querySelector(".help");
-      helpMsgEl.textContent = "‹ swipe & tap ›";
+      helpMsgEl.textContent = txt;
       setTimeout(() => helpMsgEl.remove(), 2999);
     };
-    document.addEventListener("DOMContentLoaded", helpMsg);
-    const bodyEl = document.querySelector("body");
+    
     const wordCountEl = document.querySelector(".word-count");
-    const hammertime = new Hammer(bodyEl);
+
+    const hammertime = new Hammer(document.querySelector("body"));
+
     hammertime.on("swiperight", function () {
       if (wordIndex == 0) wordIndex = words.length - 1; else wordIndex--;
       setWord(words[wordIndex]);
       wordCountEl.textContent = `${wordIndex + 1} of 4`;
     });
+
     hammertime.on("swipeleft", function () {
       if (wordIndex >= 3) wordIndex = 0; else wordIndex++;
       setWord(words[wordIndex]);
       wordCountEl.textContent = `${wordIndex + 1} of 4`;
     });
+
     hammertime.on("doubletap", () => setRandomBg(bgColors));
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setWord(words[wordIndex]);
+      setRandomBg(bgColors);
+      helpMsg('< swipe & tap >');
+    });
+
   </script>
 </body>
 
