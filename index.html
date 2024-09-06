@@ -23,19 +23,21 @@
   </footer>
 
   <script>
+
     let words = [
-      { word: "solace", definition: "comfort or consolation in a time of grief or disappointment", figure: "n." },
-      { word: "ebullient", definition: "cheerful and full of energy", figure: "adj." },
-      { word: "awe", definition: "a feeling of reverential respect mixed with fear or wonder", figure: "n." },
-      { word: "nirvana", definition: "a state of perfect happiness; an ideal or idyllic place or state", figure: "n." },
+      { word: "Empathy", definition: "The ability to understand and share the feelings of another person. It signifies a deep connection and emotional resonance with others' experiences and emotions.", figure: "n." },
+      { word: "Glimmer", definition: "A faint or intermittent light or sparkle. It can also represent a small sign or hint of something, often evoking a sense of hope or promise amidst darkness.", figure: "n." },
+      { word: "Resonance", definition: "The quality of evoking a response or echo in one's mind or emotions. It describes the impact something has on an individual's thoughts or feelings, often creating a deep, lasting impression.", figure: "n." },
+      { word: "Aplomb", definition: "Self-confidence or assurance, especially in a demanding situation. It represents a poised and composed demeanor, maintaining grace under pressure or in challenging circumstances.", figure: "n." }
     ];
+    
     const bgColors = [
-      { background: "#f4f0ea", color: "#544b43",},
-      { background: "#aa5a2e", color: "#f5f3f3",},
-      { background: "#dfc7a9", color: " #544b43",},
-      { background: "#533320", color: "#d3cfcb",},
-      { background: "#373737", color: "#d3cfcb",},
-      { background: "#b5a886", color: "#544b43",},
+      { background: "#f4f0ea", color: "#544b43", },
+      { background: "#aa5a2e", color: "#f5f3f3", },
+      { background: "#dfc7a9", color: " #544b43", },
+      { background: "#533320", color: "#d3cfcb", },
+      { background: "#373737", color: "#d3cfcb", },
+      { background: "#b5a886", color: "#544b43", },
     ];
 
     let wordIndex = 0;
@@ -50,13 +52,13 @@
       document.body.style.backgroundColor = arr[randomIndex].background;
       document.body.style.color = arr[randomIndex].color;
     };
-    
+
     function helpMsg(txt) {
       const helpMsgEl = document.querySelector(".help");
       helpMsgEl.textContent = txt;
       setTimeout(() => helpMsgEl.remove(), 2999);
     };
-    
+
     const wordCountEl = document.querySelector(".word-count");
 
     const hammertime = new Hammer(document.querySelector("body"));
