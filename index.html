@@ -5,9 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="main.css" />
-  <link rel="stylesheet" href="animation.css" />
+  <link rel="stylesheet" href="public/main.css" />
+  <link rel="stylesheet" href="public/animation.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="app.js" defer></script>
   <title>4 Words A Day</title>
 </head>
 
@@ -22,68 +23,6 @@
     <p class="word-count">1 of 4</p>
   </footer>
 
-  <script>
-
-    let words = [
-      { word: "eunoia", definition: "a pure and well-balanced mind, a good spirit, beautiful thinking", figure: "n." },
-      { word: "firgun", definition: "the act of sharing in or contributing to someone else's pleasure or fortune, with a purely generous heart and without jealousy", figure: "n." },
-      { word: "raconteur", definition: "a person who is skilled at telling stories in a funny and intersting way", figure: "adj." },
-      { word: "sobremesa", definition: "the time spent around the table after lunch or dinner, talking to the people you shared a meal with", figure: "n." },
-    ];
-    
-    const bgColors = [
-      { background: "#f4f0ea", color: "#544b43", },
-      { background: "#aa5a2e", color: "#f5f3f3", },
-      { background: "#dfc7a9", color: " #544b43", },
-      { background: "#533320", color: "#d3cfcb", },
-      { background: "#373737", color: "#d3cfcb", },
-      { background: "#b5a886", color: "#544b43", },
-    ];
-
-    let wordIndex = 0;
-    function setWord(word) {
-      document.querySelector(".word").textContent = word.word;
-      document.querySelector(".figure").textContent = `(${word.figure})`;
-      document.querySelector(".definition").textContent = word.definition;
-    };
-
-    function setRandomBg(arr) {
-      const randomIndex = Math.floor(Math.random() * arr.length);
-      document.body.style.backgroundColor = arr[randomIndex].background;
-      document.body.style.color = arr[randomIndex].color;
-    };
-
-    function helpMsg(txt) {
-      const helpMsgEl = document.querySelector(".help");
-      helpMsgEl.textContent = txt;
-      setTimeout(() => helpMsgEl.remove(), 2999);
-    };
-
-    const wordCountEl = document.querySelector(".word-count");
-
-    const hammertime = new Hammer(document.querySelector("body"));
-
-    hammertime.on("swiperight", function () {
-      if (wordIndex == 0) wordIndex = words.length - 1; else wordIndex--;
-      setWord(words[wordIndex]);
-      wordCountEl.textContent = `${wordIndex + 1} of 4`;
-    });
-
-    hammertime.on("swipeleft", function () {
-      if (wordIndex >= 3) wordIndex = 0; else wordIndex++;
-      setWord(words[wordIndex]);
-      wordCountEl.textContent = `${wordIndex + 1} of 4`;
-    });
-
-    hammertime.on("doubletap", () => setRandomBg(bgColors));
-
-    document.addEventListener("DOMContentLoaded", () => {
-      setWord(words[wordIndex]);
-      setRandomBg(bgColors);
-      helpMsg('< swipe & tap >');
-    });
-
-  </script>
 </body>
 
 </html>
