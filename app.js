@@ -1,10 +1,11 @@
-(function () {
++
+  (function () {
 
   let words = [
-    { word: "glaver", definition: "to flatter, decieve with flattery", figure: "v." },
-    { word: "beautiful", definition: "the person who is reading this", figure: "adj." },
-    { word: "odyssey", definition: "a long and eventful or adventurous journey or experience ", figure: "adj." },
-    { word: "redamancy", definition: "the act of loving the one who loves you; a love returned in full", figure: "n." },
+    { word: "leal", definition: "faithful, true, loyal", figure: "adj." },
+    { word: "isolophilia", definition: "strong affection for solitude / being alone", figure: "n." },
+    { word: "phosphenes", definition: "the colors or 'stars' you see when you rub your eyes ", figure: "n." },
+    { word: "meraki", definition: "to do something with soul, creativiy, or love", figure: "v." },
   ];
 
   const bgColors = [
